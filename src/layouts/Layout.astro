@@ -1,23 +1,51 @@
+---
+import Header from '../components/Header.astro';
+import '@fontsource-variable/onest/wght.css';
+import '../styles/global.css';
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
+		
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content="Portafolio de Jose Luis, desarrollador web. Explora mis proyectos, habilidades y experiencia en el desarrollo web. ¡Bienvenido a mi portafolio!" />
+		<title>Portafolio de Jose Luis - Desarrollador Web </title>
 	</head>
 	<body>
-		<slot />
+		<div class="pointer-events-none fixed inset-0 -z-10">
+			<div class="absolute inset-0 bg-neutral-950"></div>
+			<div class="absolute -top-40 left-1/2 h-[520px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(250,204,21,0.22),rgba(0,0,0,0))] blur-3xl"></div>
+			<div class="absolute bottom-[-120px] right-[-120px] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.18),rgba(0,0,0,0))] blur-3xl"></div>
+		</div>
+		<Header />
+		<div class="relative z-10">
+			<slot />
+		</div>
 	</body>
+
+
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+<style>	
+	html {
+		font-family: 'Onest Variable', sans-serif;
+		color-scheme: light dark;
 	}
+
+	body {
+		background: #050505;
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+		margin: 0 auto;
+	}
+
+
+
+
 </style>
