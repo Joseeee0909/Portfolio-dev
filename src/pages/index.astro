@@ -4,6 +4,87 @@ import Badge from '../components/Badge.astro';
 import SocialPill from '../components/SocialPill.astro';
 import emailIcon from '../components/icons/email.svg?raw';
 import GitHubIcon from '../components/icons/github.svg?raw';
+
+const projects = [
+    {
+        title: 'Tenpos',
+        description:
+            'Sistema POS en tiempo real para toma de pedidos desde dispositivos moviles y division directa a cocina y caja.',
+        tags: ['Node.js', 'Express', 'MongoDB Atlas', 'React'],
+        githubHref: 'https://github.com/Joseeee0909/tenpos2',
+        demoHref: '',
+        statusLabel: 'Proyecto destacado',
+        mockupLabel: 'Mockup de interfaz POS',
+    },
+    {
+        title: 'Gestor de tareas',
+        description:
+            'Proyecto colaborativo. Gestor de tareas desplegado en Vercel y Render con stack full web.',
+        tags: ['Django', 'React', 'Vercel', 'Render'],
+        githubHref: '',
+        demoHref: 'https://proyecto-integrador-1-frontend.vercel.app',
+        statusLabel: 'Funcional',
+        mockupLabel: 'Mockup de dashboard',
+    },
+    {
+        title: 'Rooms-chat a tiempo real',
+        description:
+            'Proyecto colaborativo. Sistema de chat inspirado en Discord con autenticacion y tiempo real.',
+        tags: ['Firebase', 'React', 'Realtime'],
+        githubHref: '',
+        demoHref: '',
+        statusLabel: 'En desarrollo',
+        mockupLabel: 'Mockup de chat',
+    },
+    
+    {
+        title: 'Landing page de emprendimiento',
+        description:
+            'Landing pensada para convertir, con identidad visual clara, secciones directas y una llamada a la accion fuerte.',
+        tags: ['Branding', 'Conversion', 'UI'],
+        githubHref: 'https://github.com/Joseeee0909/Gold_noir_landing_page',
+        demoHref: '',
+        statusLabel: 'Proyecto destacado',
+        mockupLabel: 'Mockup de landing',
+    },
+    {
+        title: 'Gestor de mensualidades',
+        description:
+            'Sistema para controlar mensualidades, ingresos, egresos y ahorros con import y export de Excel, reportes y graficas.',
+        tags: ['Excel', 'Reportes', 'Graficas'],
+        githubHref: 'https://github.com/Joseeee0909/Registro-de-pagos-mensualidades',
+        demoHref: 'https://registro-de-pagos-mensualidades.vercel.app',
+        statusLabel: 'Proyecto destacado',
+        mockupLabel: 'Mockup de panel financiero',
+    },
+    {
+        title: 'Sistema medico',
+        description:
+            'Proyecto pequeño con pocas funciones, pero con una interfaz limpia, buena accesibilidad y flujo sencillo.',
+        tags: ['Accesibilidad', 'UI', 'CRUD'],
+        githubHref: 'https://github.com/Joseeee0909/MEDCONNECT',
+        demoHref: 'https://chic-entremet-ee99d9.netlify.app',
+        statusLabel: 'Learning project',
+        mockupLabel: 'Mockup de sistema medico',
+    },
+    {
+        title: 'Reconocimiento facial',
+        description:
+            'Proyecto experimental en Python con OpenCV para deteccion y reconocimiento facial.',
+        tags: ['Python', 'OpenCV', 'Vision'],
+        githubHref: '',
+        demoHref: '',
+        statusLabel: 'Learning project',
+        mockupLabel: 'Captura de vision por computador',
+    },
+    {
+        title: 'Mas proyectos pronto',
+        description:
+            'Estoy construyendo nuevas ideas y pronto habra mas lanzamientos.',
+        tags: ['En progreso'],
+        statusLabel: ''
+    },
+];
 ---
 
 <Layout>
@@ -17,7 +98,7 @@ import GitHubIcon from '../components/icons/github.svg?raw';
             <div class="max-w-3xl">
                 <h1 class="reveal-up delay-2 text-balance text-4xl font-semibold text-white sm:text-5xl lg:text-6xl">
                     Hey, soy
-                    <span class="animated-name bg-gradient-to-r from-yellow-200 via-amber-300 to-orange-400 bg-clip-text text-transparent">
+                    <span class="animated-name bg-linear-to-r from-yellow-200 via-amber-300 to-orange-400 bg-clip-text text-transparent">
                         Jose Luis
                     </span>
                 </h1>
@@ -98,54 +179,54 @@ import GitHubIcon from '../components/icons/github.svg?raw';
                 <h2 class="text-2xl font-semibold text-white">Proyectos</h2>
                 <span class="text-xs uppercase tracking-[0.3em] text-white/40">En crecimiento</span>
             </div>
-            <div class="mt-8 grid gap-6 md:grid-cols-2">
-                <article class="reveal-up delay-1 card p-6">
-                    <h3 class="text-lg font-semibold text-white">Tenpos</h3>
-                    <p class="mt-3 text-sm text-white/70">
-                        Sistema POS en tiempo real para toma de pedidos desde dispositivos moviles y division directa a cocina y caja.
-                    </p>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="tag">Node.js</span>
-                        <span class="tag">Express</span>
-                        <span class="tag">MongoDB Atlas</span>
-                        <span class="tag">React</span>
-                        <span class="tag">Next.js</span>
-                        <span class="tag">Vite</span>
+            <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                {projects.map((project, index) => (
+                    <article class={`reveal-up delay-${Math.min(index + 1, 8)} card p-6`}>
+                        <div class="relative mb-6 flex min-h-45 overflow-hidden rounded-[20px] border border-white/40 bg-[linear-gradient(135deg,rgba(250,204,21,0.08),rgba(59,130,246,0.08)),radial-gradient(circle_at_top_left,rgba(255,255,255,0.07),rgba(255,255,255,0))] ">
+                            <img
+                                src={`src/assets/projects/project${(index % 8) + 1}.webp`}
+                                alt={`${project.title} mockup`}
+                                class="project-image h-full w-full cursor-pointer object-cover transition-transform duration-500 hover:scale-110 rounded-2xl"
+                            />
+                            <div class="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(135deg,rgba(255,255,255,0.05)_0,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_14px)] opacity-35"></div>
+                            {project.mockupLabel && (
+                                <span class="absolute bottom-0 left-0 z-10 mt-auto  inline-flex max-w-64 rounded-full border border-white/12 bg-slate-950/80 px-3 py-2 text-[0.7rem] uppercase tracking-[0.16em] text-white/75">
+                                    {project.mockupLabel}
+                                </span>
+                            )}
+                        </div>
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                {project.statusLabel && (
+                                    <p class="text-xs uppercase tracking-[0.3em] text-white/35">{project.statusLabel}</p>
+                                )}
+                                <h3 class="mt-3 text-lg font-semibold text-white">{project.title}</h3>
+                            </div>
+                        </div>
+                        <p class="mt-3 text-sm text-white/70">{project.description}</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            {project.tags.map((tag) => <span class="tag">{tag}</span>)}
+                        </div>
+                        <div class="relative z-20 mt-6 flex flex-wrap gap-3">
+                        {project.githubHref?.trim() && (
+                            <SocialPill
+                                href={project.githubHref}
+                                label="GitHub"
+                            />
+                        )}
+
+                        {project.demoHref?.trim() && (
+                            <SocialPill
+                                href={project.demoHref}
+                                label="Demo"
+                                class="border-yellow-400/30 bg-yellow-400/10 text-yellow-100 hover:border-yellow-400/45 hover:bg-yellow-400/15"
+                            />
+                        )}
                     </div>
-                </article>
-                <article class="reveal-up delay-2 card p-6">
-                    <h3 class="text-lg font-semibold text-white">Gestor de tareas</h3>
-                    <p class="mt-3 text-sm text-white/70">
-                        Gestor de tareas desplegado en Vercel y Render con stack full web.
-                    </p>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="tag">Django</span>
-                        <span class="tag">React</span>
-                        <span class="tag">Vercel</span>
-                        <span class="tag">Render</span>
-                    </div>
-                </article>
-                <article class="reveal-up delay-3 card p-6">
-                    <h3 class="text-lg font-semibold text-white">Chat tipo Discord</h3>
-                    <p class="mt-3 text-sm text-white/70">
-                        Sistema de chat inspirado en Discord con autenticacion y tiempo real.
-                    </p>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="tag">Firebase</span>
-                        <span class="tag">React</span>
-                        <span class="tag">Realtime</span>
-                    </div>
-                </article>
-                <article class="reveal-up delay-4 card p-6">
-                    <h3 class="text-lg font-semibold text-white">Mas proyectos pronto</h3>
-                    <p class="mt-3 text-sm text-white/70">
-                        Estoy construyendo nuevas ideas y pronto habra mas lanzamientos.
-                    </p>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="tag">En progreso</span>
-                    </div>
-                </article>
+                    </article>
+                ))}
             </div>
+            
         </section>
 
         <section id="sobre-mi" class="mx-auto w-full max-w-6xl px-6 pb-16">
@@ -198,21 +279,162 @@ import GitHubIcon from '../components/icons/github.svg?raw';
                 <form class="contact-form" autocomplete="off">
                     <label class="contact-field">
                         <span>Nombre</span>
-                        <input class="contact-input" type="text" name="name" placeholder="Tu nombre" />
+                        <input
+                            id="contact-name"
+                            class="contact-input"
+                            type="text"
+                            name="name"
+                            placeholder="Tu nombre"
+                        />
                     </label>
+
                     <label class="contact-field">
                         <span>Email</span>
-                        <input class="contact-input" type="email" name="email" placeholder="tu@email.com" />
+                        <input
+                            id="contact-email"
+                            class="contact-input"
+                            type="email"
+                            name="email"
+                            placeholder="tu@email.com"
+                        />
                     </label>
+
                     <label class="contact-field">
                         <span>Mensaje</span>
-                        <textarea class="contact-input" name="message" rows="5" placeholder="Cuentame tu proyecto o propuesta..."></textarea>
+                        <textarea
+                            id="contact-message"
+                            class="contact-input"
+                            name="message"
+                            rows="5"
+                            placeholder="Cuentame tu proyecto o propuesta..."
+                        ></textarea>
                     </label>
-                    <button class="contact-button" type="button">Enviar por WhatsApp</button>
+
+                    <button
+                        id="whatsapp-button"
+                        class="contact-button"
+                        type="button"
+                    >
+                        Enviar por WhatsApp
+                    </button>
                 </form>
             </div>
         </section>
     </main>
-        
+        <div
+    id="image-modal"
+    class="fixed inset-0 z-999 hidden items-center justify-center bg-black/85 p-6 backdrop-blur-sm"
+>
+    <img
+        id="modal-image"
+        class="max-h-[92vh] max-w-[92vw] rounded-2xl border border-white/10 shadow-2xl"
+        src=""
+        alt="Preview"
+    />
+</div>
+<script>
+    const header = document.getElementById("site-header");
+
+    window.addEventListener("scroll", () => {
+        if (!header) return;
+
+        if (window.scrollY > 20) {
+            header.classList.add(
+                "border-white/10",
+                "bg-black/40",
+                "backdrop-blur-xl"
+            );
+        } else {
+            header.classList.remove(
+                "border-white/10",
+                "bg-black/40",
+                "backdrop-blur-xl"
+            );
+        }
+    });
+</script>
+<script>
+        const button = document.getElementById("whatsapp-button");
+
+        button?.addEventListener("click", () => {
+            const name =
+                (
+                    document.getElementById(
+                        "contact-name"
+                    ) as HTMLInputElement
+                )?.value || "";
+
+            const email =
+                (
+                    document.getElementById(
+                        "contact-email"
+                    ) as HTMLInputElement
+                )?.value || "";
+
+            const message =
+                (
+                    document.getElementById(
+                        "contact-message"
+                    ) as HTMLTextAreaElement
+                )?.value || "";
+
+            const text = `
+    Hola Jose Luis, te contacto desde tu portafolio web.
+
+    Mi nombre es: ${name}
+
+    Email:
+    ${email}
+
+    Mensaje:
+    ${message}
+            `;
+
+            const phoneNumber = "573145868426";
+
+            const whatsappURL =
+                `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+
+            window.open(whatsappURL, "_blank");
+        });
+</script>
+<script>
+    const modal = document.getElementById("image-modal") as HTMLDivElement | null;
+
+    const modalImage = document.getElementById(
+        "modal-image"
+    ) as HTMLImageElement | null;
+
+    document.querySelectorAll(".project-image").forEach((img) => {
+        img.addEventListener("click", () => {
+            const image = img as HTMLImageElement;
+
+            if (!modal || !modalImage) return;
+
+            modalImage.src = image.src;
+
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    modal?.addEventListener("click", () => {
+        modal.classList.remove("flex");
+        modal.classList.add("hidden");
+
+        document.body.style.overflow = "";
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal) {
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
+
+            document.body.style.overflow = "";
+        }
+    });
+</script>
 
 </Layout>

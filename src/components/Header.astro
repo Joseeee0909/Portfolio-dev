@@ -1,21 +1,65 @@
-<header class="sticky top-0 z-20 bg-transparent">
-    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <div class="relative shrink-0">
-            <div
-                class="absolute inset-1 rounded-full bg-yellow-400/30 blur-xl"
-                aria-hidden="true"
-            ></div>
-            <img
-                class="avatar-float relative size-16 rounded-full object-cover shadow-2xl ring-2 ring-yellow-400/60 ring-offset-2 ring-offset-neutral-950"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Robert_Downey%2C_Jr._2012.jpg/960px-Robert_Downey%2C_Jr._2012.jpg"
-                alt="Foto de Jose Luis"
-            />
+<header
+    id="site-header"
+    class="sticky top-0 z-50 border-b border-transparent transition-[background-color,backdrop-filter,border-color] duration-300"
+>
+    <div
+        class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+    >
+        <!-- Left -->
+        <div class="flex items-center gap-4">
+            <div class="relative shrink-0">
+                <div
+                    class="absolute inset-1 rounded-full bg-yellow-400/30 blur-xl"
+                    aria-hidden="true"
+                ></div>
+
+                <img
+                    class="relative h-12 w-12 rounded-full object-cover ring-2 ring-yellow-400/60"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Robert_Downey%2C_Jr._2012.jpg/960px-Robert_Downey%2C_Jr._2012.jpg"
+                    alt="Foto de Jose Luis"
+                />
+            </div>
+
+            <div class="hidden sm:block">
+                <p class="text-sm font-medium text-white">
+                    Jose Luis
+                </p>
+
+                <p class="text-xs text-white/50">
+                    Software Developer
+                </p>
+            </div>
         </div>
-        <nav class="hidden items-center gap-8 text-sm font-medium text-white/80 md:flex">
-            <a class="nav-link transition hover:text-white" href="#inicio">Inicio</a>
-            <a class="nav-link transition hover:text-white" href="#sobre-mi">Sobre mi</a>
-            <a class="nav-link transition hover:text-white" href="#proyectos">Proyectos</a>
-            <a class="nav-link transition hover:text-white" href="#contacto">Contacto</a>
+
+        <!-- Navigation -->
+        <nav class="hidden items-center gap-8 text-sm font-medium text-white/70 md:flex">
+            <a
+                class="transition hover:text-white"
+                href="#inicio"
+            >
+                Inicio
+            </a>
+
+            <a
+                class="transition hover:text-white"
+                href="#sobre-mi"
+            >
+                Sobre mi
+            </a>
+
+            <a
+                class="transition hover:text-white"
+                href="#proyectos"
+            >
+                Proyectos
+            </a>
+
+            <a
+                class="transition hover:text-white"
+                href="#contacto"
+            >
+                Contacto
+            </a>
         </nav>
     </div>
 </header>
